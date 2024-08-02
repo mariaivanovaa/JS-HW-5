@@ -75,8 +75,8 @@ document.getElementById("checkButtonDays").addEventListener("click", () => {
 // 5
 document.getElementById("checkButtonColor").addEventListener("click", () => {
     const color = document.getElementById("colorInput").value.trim().toLowerCase();
-    
-    switch(color) {
+
+    switch (color) {
         case "червоний":
             alert("стоп");
             break;
@@ -93,3 +93,31 @@ document.getElementById("checkButtonColor").addEventListener("click", () => {
 });
 
 // 6
+document.getElementById("calculateButton").addEventListener("click", () => {
+    const num1 = parseFloat(document.getElementById("number1").value);
+    const num2 = parseFloat(document.getElementById("number2").value);
+    const operation = document.getElementById("operation").value;
+    let result;
+
+    switch (operation) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            if (num2 === 0) {
+                alert("Ділення на нуль неможливе. Введіть інше число.");
+                return;
+            }
+            result = num1 / num2;
+            break;
+
+    }
+
+    alert(`Результат: ${result}`);
+});
